@@ -983,42 +983,6 @@ private String removeMarkdownCodeBlock(String contentText) {
 
 Gemini가 코드블록 형태로 JSON을 반환하더라도 백엔드에서 한 번 정리한 뒤 파싱할 수 있어 AI 추천 저장 안정성이 높아졌습니다.
 
----
-
-## 7-4. AI 프롬프트 포맷 오류
-
-### 문제
-
-AI 프롬프트에 `%s`를 추가한 뒤 다음 오류가 발생했습니다.
-
-```text
-java.util.MissingFormatArgumentException: Format specifier '%s'
-```
-
-### 원인
-
-`String.format()` 또는 `.formatted()`를 사용할 때 프롬프트 안의 `%s` 개수와 전달한 값의 개수가 맞지 않았습니다.
-
-예를 들어 프롬프트에 `[작성한 게시물 데이터] %s`를 추가했지만, `String.format()` 인자에 `boardData`를 추가하지 않으면 오류가 발생합니다.
-
-### 해결
-
-프롬프트에 들어가는 `%s` 순서와 `String.format()` 인자 순서를 일치시켰습니다.
-
-```java
-String prompt = makeNormalChatPrompt(
-    userProfileJson,
-    boardData,
-    todayRecommendationJson,
-    historyJson,
-    question,
-    todayWeekday
-);
-```
-
-### 결과
-
-작성한 게시물 데이터까지 Gemini 프롬프트에 정상적으로 포함되었고, AI 질문 기능에서 포맷 오류 없이 답변을 생성할 수 있게 되었습니다.
 
 
 # 8. Database
