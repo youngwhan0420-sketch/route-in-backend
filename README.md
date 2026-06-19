@@ -1,10 +1,8 @@
-# ⚙ Route-In Backend
+# ⚙ Route-In-AI-Coach Backend
 
-Route-In 서비스의 백엔드 서버입니다.
+Route-In-AI-Coach 서비스의 백엔드 서버입니다.
 
 Spring Boot 기반 REST API와 WebSocket을 통해 게시글, 러닝코스, 루틴, 팔로우, 알림, 채팅, AI 추천, 인바디, 출석 기능을 제공합니다.
-
-[🔗 Frontend 레포](https://github.com/Koreait-Triple-Stack/route_in_frontend.git)　|　[🔗 배포 주소](https://routein.store)
 
 ---
 
